@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vortes Studios</title>
+  <meta name="description" content="Creatividad, tecnología y comunidad. Explora Vortes Studios: redes oficiales y galería." />
+
+  <!-- Open Graph para embeds (Discord, redes) -->
+  <meta property="og:title" content="Vortes Studios" />
+  <meta property="og:description" content="Creatividad, tecnología y comunidad. Explora nuestras redes y galería." />
+  <meta property="og:image" content="https://tusitio.com/banner.jpg" />
+  <meta property="og:url" content="https://tusitio.com" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Iconos de redes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --text: #f4f6f9;
+      --text-dim: #c9ced6;
+      --red: #e63946;
+      --blue: #0077ff;
+      --card: #111627;
+      --accent-grad: linear-gradient(135deg, #e63946 0%, #0077ff 100%);
+      --button-bg: #151b2c;
+      --button-border: #1e2740;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      text-align: center;
+      padding: 2rem;
+    }
+    header {
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      background: var(--accent-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+    }
+    .socials {
+      margin: 2rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .socials a {
+      background: var(--button-bg);
+      border: 1px solid var(--button-border);
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .socials a:hover {
+      background: var(--accent-grad);
+      color: white;
+    }
+    /* Galería */
+    #galeria {
+      margin: 3rem auto;
+      text-align: center;
+    }
+    #galeria h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .galeria {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .imagen-galeria {
+      max-width: 250px;
+      border-radius: 8px;
+      border: 2px solid var(--blue);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Vortes Studios</h1>
+    <p>Creatividad, tecnología y comunidad</p>
+  </header>
+
+  <div class="socials">
+    <a href="https://discord.gg/tuservidor" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+    <a href="https://twitter.com/tucuenta" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a>
+    <a href="https://instagram.com/tucuenta" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+  </div>
+
+  <!-- Galería dinámica -->
+  <section id="galeria">
+    <h2>🖼️ Galería</h2>
+    <div id="imagenes" class="galeria"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Vortes Studios. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    async function cargarGaleria() {
+      try {
+        const response = await fetch('config/galeriaWeb.json');
+        const imagenes = await response.json();
+
+        const contenedor = document.getElementById('imagenes');
+        contenedor.innerHTML = '';
+
+        imagenes.forEach(url => {
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = 'Imagen de la galería';
+          img.classList.add('imagen-galeria');
+          contenedor.appendChild(img);
+        });
+      } catch (error) {
+        console.error('Error cargando galería:', error);
+      }
+    }
+
+    // Cargar al inicio
+    cargarGaleria();
+  </script>
+</body>
+</html>
