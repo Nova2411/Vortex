@@ -3,86 +3,98 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vortes Studios</title>
-  <meta name="description" content="Creatividad, tecnología y comunidad. Explora Vortes Studios: redes oficiales y galería." />
-
-  <!-- Open Graph para embeds (Discord, redes) -->
-  <meta property="og:title" content="Vortes Studios" />
-  <meta property="og:description" content="Creatividad, tecnología y comunidad. Explora nuestras redes y galería." />
-  <meta property="og:image" content="https://tusitio.com/banner.jpg" />
-  <meta property="og:url" content="https://tusitio.com" />
-  <meta property="og:type" content="website" />
-
-  <!-- Fuente -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <title>Vortex Studios</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Iconos de redes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --bg: #0b0f19;
-      --text: #f4f6f9;
-      --text-dim: #c9ced6;
-      --red: #e63946;
-      --blue: #0077ff;
+      --negro: #0b0f19;
+      --rojo: #e63946;
+      --azul: #0077ff;
+      --texto: #f4f6f9;
+      --texto-dim: #c9ced6;
       --card: #111627;
-      --accent-grad: linear-gradient(135deg, #e63946 0%, #0077ff 100%);
-      --button-bg: #151b2c;
-      --button-border: #1e2740;
+      --gradiente: linear-gradient(135deg, var(--rojo) 0%, var(--azul) 100%);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--negro);
+      color: var(--texto);
       line-height: 1.6;
-      text-align: center;
-      padding: 2rem;
     }
+
+    /* --- Banner --- */
     header {
-      margin-bottom: 2rem;
+      position: relative;
+      height: 60vh;
+      background: url("img/banner.jpg") center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: center;
+      padding-bottom: 2rem;
+    }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-bottom: 0.5rem;
     }
     header h1 {
-      font-size: 2.5rem;
-      background: var(--accent-grad);
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gradiente);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    header p {
-      color: var(--text-dim);
-      margin-top: 0.5rem;
-    }
-    .socials {
-      margin: 2rem 0;
+
+    /* --- Sección media --- */
+    #info {
       display: flex;
-      justify-content: center;
-      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3rem 10%;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
-    .socials a {
-      background: var(--button-bg);
-      border: 1px solid var(--button-border);
+    #info .descripcion {
+      flex: 1;
+      color: var(--texto-dim);
+      font-size: 1.1rem;
+    }
+    #info .socials {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    #info .socials a {
+      background: var(--card);
       padding: 0.75rem 1.25rem;
       border-radius: 8px;
-      color: var(--text);
+      color: var(--texto);
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
+      border: 1px solid #1e2740;
     }
-    .socials a:hover {
-      background: var(--accent-grad);
+    #info .socials a:hover {
+      background: var(--gradiente);
       color: white;
     }
-    /* Galería */
+
+    /* --- Galería --- */
     #galeria {
-      margin: 3rem auto;
+      padding: 3rem 10%;
       text-align: center;
     }
     #galeria h2 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: var(--text);
     }
     .galeria {
       display: flex;
@@ -91,38 +103,78 @@
       flex-wrap: wrap;
     }
     .imagen-galeria {
-      max-width: 250px;
+      max-width: 300px;
       border-radius: 8px;
-      border: 2px solid var(--blue);
+      border: 2px solid var(--azul);
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
+
     footer {
-      margin-top: 3rem;
+      text-align: center;
+      padding: 1rem;
+      color: var(--texto-dim);
       font-size: 0.9rem;
-      color: var(--text-dim);
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      header {
+        height: 40vh;
+        padding-bottom: 1rem;
+      }
+      header img {
+        width: 80px;
+        height: 80px;
+      }
+      header h1 {
+        font-size: 1.5rem;
+      }
+      #info {
+        flex-direction: column;
+        text-align: center;
+      }
+      #info .socials {
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Banner -->
   <header>
-    <h1>Vortes Studios</h1>
-    <p>Creatividad, tecnología y comunidad</p>
+    <div>
+      <img src="img/icono.png" alt="Icono Vortex Studios">
+      <h1>Vortex Studios</h1>
+    </div>
   </header>
 
-  <div class="socials">
-    <a href="https://discord.gg/tuservidor" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
-    <a href="https://twitter.com/tucuenta" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a>
-    <a href="https://instagram.com/tucuenta" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
-  </div>
+  <!-- Info + Redes -->
+  <section id="info">
+    <div class="descripcion">
+      <h2>Sobre nosotros</h2>
+      <p>
+        En Vortex Studios combinamos creatividad, tecnología y comunidad. 
+        Creamos proyectos digitales, contenido audiovisual y experiencias interactivas 
+        que conectan a las personas.
+      </p>
+    </div>
+    <div class="socials">
+      <a href="https://x.com/vortexstudiosgo?t=1vHn7otZt4lMqQYpSEEldQ&s=09"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+      <a href="https://discord.gg/mRFtAWYu39" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a>
+      <a href="https://youtube.com/@vortexstudiosgg?si=hBa3xk0c15Tio5l5" target="_blank"><i class="fa-brands fa-youtube"></i> YouTube</a>
+      <a href="https://www.tiktok.com/@vortexstudiosnow?_t=ZM-8z4NTQeOjXJ&_r=1" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+    </div>
+  </section>
 
-  <!-- Galería dinámica -->
+  <!-- Galería -->
   <section id="galeria">
     <h2>🖼️ Galería</h2>
     <div id="imagenes" class="galeria"></div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Vortes Studios. Todos los derechos reservados.</p>
+    <p>&copy; 2025 Vortex Studios. Todos los derechos reservados.</p>
   </footer>
 
   <script>
@@ -131,12 +183,18 @@
         const response = await fetch('config/galeriaWeb.json');
         const imagenes = await response.json();
 
+        // Ordenar de más antigua a más nueva
+        const ordenadas = imagenes.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
+
+        // Tomar solo las 3 últimas
+        const ultimas = ordenadas.slice(-3);
+
         const contenedor = document.getElementById('imagenes');
         contenedor.innerHTML = '';
 
-        imagenes.forEach(url => {
+        ultimas.forEach(item => {
           const img = document.createElement('img');
-          img.src = url;
+          img.src = item.url;
           img.alt = 'Imagen de la galería';
           img.classList.add('imagen-galeria');
           contenedor.appendChild(img);
@@ -146,7 +204,6 @@
       }
     }
 
-    // Cargar al inicio
     cargarGaleria();
   </script>
 </body>
