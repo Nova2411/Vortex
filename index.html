@@ -4,24 +4,24 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vortex Studios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --negro: #0b0f19;
       --rojo: #e63946;
       --azul: #0077ff;
-      --texto: #f4f6f9;
-      --texto-dim: #c9ced6;
-      --card: #111627;
+      --gris-claro: #f4f6f9;
+      --gris-texto: #444;
+      --oscuro: #0b0f19;
       --gradiente: linear-gradient(135deg, var(--rojo) 0%, var(--azul) 100%);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: var(--negro);
-      color: var(--texto);
+      color: var(--gris-texto);
       line-height: 1.6;
     }
 
@@ -37,14 +37,15 @@
       padding-bottom: 2rem;
     }
     header img {
-      width: 100px;
-      height: 100px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       border: 3px solid white;
       margin-bottom: 0.5rem;
     }
     header h1 {
-      font-size: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
       font-weight: 700;
       background: var(--gradiente);
       -webkit-background-clip: text;
@@ -53,6 +54,7 @@
 
     /* --- Sección media --- */
     #info {
+      background: var(--gris-claro);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -62,7 +64,6 @@
     }
     #info .descripcion {
       flex: 1;
-      color: var(--texto-dim);
       font-size: 1.1rem;
     }
     #info .socials {
@@ -73,34 +74,37 @@
       flex-wrap: wrap;
     }
     #info .socials a {
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--card);
       border-radius: 50%;
-      color: var(--texto);
-      font-size: 1.5rem;
-      transition: 0.3s;
-      border: 1px solid #1e2740;
-    }
-    #info .socials a i {
-      line-height: 1; /* Fix para TikTok */
-    }
-    #info .socials a:hover {
-      background: var(--gradiente);
+      font-size: 1.6rem;
       color: white;
+      transition: 0.3s;
+    }
+    /* Colores oficiales */
+    .socials a.twitter { background: #1DA1F2; }
+    .socials a.discord { background: #5865F2; }
+    .socials a.youtube { background: #FF0000; }
+    .socials a.tiktok  { background: #000000; }
+
+    .socials a:hover {
+      transform: scale(1.1);
     }
 
     /* --- Galería --- */
     #galeria {
+      background: var(--oscuro);
       padding: 3rem 10%;
       text-align: center;
+      color: white;
     }
     #galeria h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
     .galeria {
       display: flex;
@@ -118,7 +122,8 @@
     footer {
       text-align: center;
       padding: 1rem;
-      color: var(--texto-dim);
+      background: var(--gris-claro);
+      color: var(--gris-texto);
       font-size: 0.9rem;
     }
 
@@ -126,21 +131,17 @@
     @media (max-width: 768px) {
       header {
         height: 40vh;
-        padding-bottom: 1rem;
       }
       header img {
         width: 80px;
         height: 80px;
       }
       header h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
       #info {
         flex-direction: column;
         text-align: center;
-      }
-      #info .socials {
-        justify-content: center;
       }
     }
   </style>
@@ -166,16 +167,16 @@
       </p>
     </div>
     <div class="socials">
-      <a href="https://twitter.com/tucuenta" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-      <a href="https://discord.gg/tuservidor" target="_blank"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://youtube.com/@tucuenta" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://tiktok.com/@tucuenta" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="https://twitter.com/tucuenta" target="_blank" class="twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://discord.gg/tuservidor" target="_blank" class="discord"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://youtube.com/@tucuenta" target="_blank" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://tiktok.com/@tucuenta" target="_blank" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
     </div>
   </section>
 
   <!-- Galería -->
   <section id="galeria">
-    <h2>🖼️ Galería</h2>
+    <h2>Galería</h2>
     <div id="imagenes" class="galeria"></div>
   </section>
 
