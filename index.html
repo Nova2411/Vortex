@@ -13,16 +13,15 @@
     :root {
       --rojo: #e63946;
       --azul: #0077ff;
-      --gris-claro: #f4f6f9;
-      --gris-texto: #444;
-      --oscuro: #0b0f19;
-      --gradiente: linear-gradient(135deg, var(--rojo) 0%, var(--azul) 100%);
+      --morado: #6a0dad;
+      --gradiente: linear-gradient(135deg, var(--rojo), var(--azul), var(--morado));
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      color: var(--gris-texto);
+      color: #f4f6f9;
       line-height: 1.6;
+      background: #0b0f19;
     }
 
     /* --- Banner --- */
@@ -35,68 +34,53 @@
       align-items: flex-end;
       text-align: center;
       padding-bottom: 2rem;
+      background-blend-mode: overlay;
+      background-color: rgba(0,0,0,0.5);
     }
     header img {
-      width: 110px;
-      height: 110px;
+      width: 120px;
+      aspect-ratio: 1 / 1;
       border-radius: 50%;
-      border: 3px solid white;
+      object-fit: cover;
+      border: 3px solid var(--azul);
       margin-bottom: 0.5rem;
     }
     header h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
       font-weight: 700;
-      background: var(--gradiente);
+      background: linear-gradient(270deg, var(--rojo), var(--azul), var(--morado));
+      background-size: 600% 600%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: gradienteAnimado 8s ease infinite;
+    }
+    @keyframes gradienteAnimado {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* --- Sección media --- */
     #info {
-      background: var(--gris-claro);
+      background: radial-gradient(circle at top left, var(--azul), var(--morado), #0b0f19);
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       padding: 3rem 10%;
       gap: 2rem;
       flex-wrap: wrap;
+      text-align: center;
     }
     #info .descripcion {
       flex: 1;
       font-size: 1.1rem;
-    }
-    #info .socials {
-      flex: 1;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    #info .socials a {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 1.6rem;
-      color: white;
-      transition: 0.3s;
-    }
-    /* Colores oficiales */
-    .socials a.twitter { background: #1DA1F2; }
-    .socials a.discord { background: #5865F2; }
-    .socials a.youtube { background: #FF0000; }
-    .socials a.tiktok  { background: #000000; }
-
-    .socials a:hover {
-      transform: scale(1.1);
+      max-width: 700px;
     }
 
-    /* --- Galería --- */
+    /* --- Galería + Iconos --- */
     #galeria {
-      background: var(--oscuro);
+      background: radial-gradient(circle at bottom right, var(--rojo), var(--morado), #0b0f19);
       padding: 3rem 10%;
       text-align: center;
       color: white;
@@ -111,19 +95,45 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
     .imagen-galeria {
       max-width: 300px;
       border-radius: 8px;
       border: 2px solid var(--azul);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    /* Redes sociales dentro de galería */
+    .socials {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .socials a {
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      color: white;
+      transition: 0.3s;
+      background: var(--gradiente);
+      background-size: 200% 200%;
+      animation: gradienteAnimado 6s ease infinite;
+    }
+    .socials a:hover {
+      transform: scale(1.15);
     }
 
     footer {
       text-align: center;
       padding: 1rem;
-      background: var(--gris-claro);
-      color: var(--gris-texto);
+      background: linear-gradient(90deg, var(--azul), var(--morado));
+      color: white;
       font-size: 0.9rem;
     }
 
@@ -134,14 +144,12 @@
       }
       header img {
         width: 80px;
-        height: 80px;
       }
       header h1 {
         font-size: 1.8rem;
       }
       #info {
         flex-direction: column;
-        text-align: center;
       }
     }
   </style>
@@ -156,7 +164,7 @@
     </div>
   </header>
 
-  <!-- Info + Redes -->
+  <!-- Info -->
   <section id="info">
     <div class="descripcion">
       <h2>Sobre nosotros</h2>
@@ -166,18 +174,18 @@
         que conectan a las personas.
       </p>
     </div>
-    <div class="socials">
-      <a href="https://twitter.com/tucuenta" target="_blank" class="twitter"><i class="fa-brands fa-twitter"></i></a>
-      <a href="https://discord.gg/tuservidor" target="_blank" class="discord"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://youtube.com/@tucuenta" target="_blank" class="youtube"><i class="fa-brands fa-youtube"></i></a>
-      <a href="https://tiktok.com/@tucuenta" target="_blank" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
-    </div>
   </section>
 
-  <!-- Galería -->
+  <!-- Galería + Redes -->
   <section id="galeria">
     <h2>Galería</h2>
     <div id="imagenes" class="galeria"></div>
+    <div class="socials">
+      <a href="https://twitter.com/tucuenta" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://discord.gg/tuservidor" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://youtube.com/@tucuenta" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://tiktok.com/@tucuenta" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
   </section>
 
   <footer>
@@ -190,10 +198,7 @@
         const response = await fetch('config/galeriaWeb.json');
         const imagenes = await response.json();
 
-        // Ordenar de más antigua a más nueva
         const ordenadas = imagenes.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-
-        // Tomar solo las 3 últimas
         const ultimas = ordenadas.slice(-3);
 
         const contenedor = document.getElementById('imagenes');
@@ -210,7 +215,6 @@
         console.error('Error cargando galería:', error);
       }
     }
-
     cargarGaleria();
   </script>
 </body>
