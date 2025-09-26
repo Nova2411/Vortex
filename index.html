@@ -13,15 +13,14 @@
     :root {
       --rojo: #e63946;
       --azul: #0077ff;
-      --morado: #6a0dad;
-      --gradiente: linear-gradient(135deg, var(--rojo), var(--azul), var(--morado));
+      --gradiente: linear-gradient(135deg, var(--rojo), var(--azul));
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       color: #f4f6f9;
       line-height: 1.6;
-      background: #0b0f19;
+      background: #0b0f19; /* fondo negro en todo */
     }
 
     /* --- Banner --- */
@@ -49,53 +48,65 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 2.5rem;
       font-weight: 700;
-      background: linear-gradient(270deg, var(--rojo), var(--azul), var(--morado));
-      background-size: 600% 600%;
+      background: var(--gradiente);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradienteAnimado 8s ease infinite;
-    }
-    @keyframes gradienteAnimado {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
-    /* --- Sección media --- */
+    /* --- Sección media (info + redes) --- */
     #info {
-      background: radial-gradient(circle at top left, var(--azul), var(--morado), #0b0f19);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       padding: 3rem 10%;
       gap: 2rem;
       flex-wrap: wrap;
-      text-align: center;
     }
     #info .descripcion {
-      flex: 1;
+      flex: 2;
       font-size: 1.1rem;
-      max-width: 700px;
+    }
+    #info .socials {
+      flex: 1;
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+    #info .socials a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      color: white;
+      transition: 0.3s;
+      background: var(--gradiente);
+    }
+    #info .socials a:hover {
+      transform: scale(1.15);
     }
 
-    /* --- Galería + Iconos --- */
+    /* --- Galería --- */
     #galeria {
-      background: radial-gradient(circle at bottom right, var(--rojo), var(--morado), #0b0f19);
       padding: 3rem 10%;
       text-align: center;
-      color: white;
     }
     #galeria h2 {
       font-family: 'Montserrat', sans-serif;
       font-size: 2rem;
       margin-bottom: 1.5rem;
+      background: var(--gradiente);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .galeria {
       display: flex;
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
     }
     .imagen-galeria {
       max-width: 300px;
@@ -104,36 +115,11 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.6);
     }
 
-    /* Redes sociales dentro de galería */
-    .socials {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .socials a {
-      width: 55px;
-      height: 55px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 1.6rem;
-      color: white;
-      transition: 0.3s;
-      background: var(--gradiente);
-      background-size: 200% 200%;
-      animation: gradienteAnimado 6s ease infinite;
-    }
-    .socials a:hover {
-      transform: scale(1.15);
-    }
-
     footer {
       text-align: center;
       padding: 1rem;
-      background: linear-gradient(90deg, var(--azul), var(--morado));
-      color: white;
+      background: #000;
+      color: #aaa;
       font-size: 0.9rem;
     }
 
@@ -150,6 +136,10 @@
       }
       #info {
         flex-direction: column;
+        text-align: center;
+      }
+      #info .socials {
+        justify-content: center;
       }
     }
   </style>
@@ -164,7 +154,7 @@
     </div>
   </header>
 
-  <!-- Info -->
+  <!-- Info + Redes -->
   <section id="info">
     <div class="descripcion">
       <h2>Sobre nosotros</h2>
@@ -174,18 +164,18 @@
         que conectan a las personas.
       </p>
     </div>
-  </section>
-
-  <!-- Galería + Redes -->
-  <section id="galeria">
-    <h2>Galería</h2>
-    <div id="imagenes" class="galeria"></div>
     <div class="socials">
       <a href="https://twitter.com/tucuenta" target="_blank"><i class="fa-brands fa-twitter"></i></a>
       <a href="https://discord.gg/tuservidor" target="_blank"><i class="fa-brands fa-discord"></i></a>
       <a href="https://youtube.com/@tucuenta" target="_blank"><i class="fa-brands fa-youtube"></i></a>
       <a href="https://tiktok.com/@tucuenta" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
     </div>
+  </section>
+
+  <!-- Galería -->
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div id="imagenes" class="galeria"></div>
   </section>
 
   <footer>
